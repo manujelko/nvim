@@ -1,0 +1,5 @@
+{
+  "lazy.nvim": { "branch": "main", "commit": "96584866b9c5e998cbae300594d0ccfd0c464627" },
+  "lualine.nvim": { "branch": "master", "commit": "2248ef254d0a1488a72041cfb45ca9caada6d994" },
+  "vim-moonfly-colors": { "branch": "master", "commit": "5f121c0e8103181a16aa86e9f80e99204eef6c39" }
+}
