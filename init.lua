@@ -413,6 +413,8 @@ require('nvim-treesitter.configs').setup({
     ensure_installed = {
         'c',
         'lua',
+        'make',
+        'markdown',
         'python',
         'vim',
         'vimdoc'
