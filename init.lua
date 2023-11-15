@@ -111,6 +111,9 @@ lazy.setup({
     {'nvim-telescope/telescope-fzf-native.nvim', build = 'make'},
     -- comments
     {'numToStr/Comment.nvim', lazy = false},
+    -- treesitter
+    {'nvim-treesitter/nvim-treesitter'},
+    {'nvim-treesitter/nvim-treesitter-textobjects'},
 })
 
 -- color theme
@@ -365,4 +368,29 @@ vim.keymap.set('n', '<leader>fs', '<cmd>Telescope current_buffer_fuzzy_find<cr>'
 
 -- comments
 require('Comment').setup()
+
+-- treesitter
+require('nvim-treesitter.configs').setup({
+    highlight = {
+        enable = true,
+    },
+    textobjects = {
+        select = {
+            enable = true,
+            lookahead = true,
+            keymaps = {
+                ['af'] = '@function.outer',
+                ['if'] = '@function.inner',
+                ['ac'] = '@class.outer',
+                ['ic'] = '@class.inner',
+            },
+        },
+    },
+    ensure_installed = {
+        'c',
+        'lua',
+        'vim',
+        'vimdoc'
+    },
+})
 
