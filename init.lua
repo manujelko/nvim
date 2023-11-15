@@ -135,9 +135,10 @@ vim.api.nvim_create_user_command('ReloadConfig', 'source $MYVIMRC', {})
 require('mason').setup()
 require('mason-lspconfig').setup()
 local lspconfig = require('lspconfig')
+local lspconfig_configs = require('lspconfig.configs')
 local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
 
--- lua lsp
+-- lua_ls
 lspconfig.lua_ls.setup({
     settings = {
         Lua = {
@@ -150,6 +151,26 @@ lspconfig.lua_ls.setup({
     },
     capabilities = lsp_capabilities,
 })
+
+-- pyright
+lspconfig.pyright.setup({})
+
+-- ruff-lsp
+if not lspconfig_configs then
+    lspconfig_configs.ruff_lsp = {
+        default_config = {
+            cmd = {'ruff-lsp'},
+            filetypes = {'python'},
+            root_dir = require('lspconfig').util.find_git_ancestor,
+            init_options = {
+                settings = {
+                    args = {}
+                }
+            }
+        }
+    }
+end
+lspconfig.ruff_lsp.setup({})
 
 -- lsp keybindings
 vim.api.nvim_create_autocmd('LspAttach', {
@@ -179,7 +200,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
         bufmap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>')
 
         -- displays a function's signature information
-        bufmap('n', 'gs', 'Mcmd>lua vim.lsp.buf.signature_help()<cr>')
+        bufmap('n', 'gs', '<cmd>lua vim.lsp.buf.signature_help()<cr>')
 
         -- renames all references to the symbol under the cursor
         bufmap('n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<cr>')
@@ -343,6 +364,9 @@ require('nvim-tree').setup({
 
         local api = require('nvim-tree.api')
 
+	-- default mappings
+	api.config.mappings.default_on_attach(bufnr)
+
         bufmap('L', api.node.open.edit, 'Expand folder or go to file')
         bufmap('H', api.node.navigate.parent_close, 'Close parent folder')
         bufmap('gh', api.tree.toggle_hidden_filter, 'Toggle hidden files')
@@ -389,8 +413,17 @@ require('nvim-treesitter.configs').setup({
     ensure_installed = {
         'c',
         'lua',
+        'python',
         'vim',
         'vimdoc'
     },
+})
+
+-- format on save in Python
+vim.api.nvim_create_autocmd("BufWritePre", {
+    pattern = "*.py",
+    callback = function()
+        vim.lsp.buf.format {async = true}
+    end,
 })
 
