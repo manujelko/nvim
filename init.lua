@@ -54,56 +54,61 @@ vim.keymap.set('n', '<leader>a', ':keepjumps normal! ggVG<cr>')
 local lazy = {}
 
 function lazy.install(path)
-	if not vim.loop.fs_stat(path) then
-		print('Installing lazy.nvim...')
-		vim.fn.system({
-			'git',
-			'clone',
-			'--filter=blob:none',
-			'https://github.com/folke/lazy.nvim.git',
-			'--branch=stable', -- latest stable release
-			path,
-		})
-	end
+    if not vim.loop.fs_stat(path) then
+        print('Installing lazy.nvim...')
+        vim.fn.system({
+            'git',
+            'clone',
+            '--filter=blob:none',
+            'https://github.com/folke/lazy.nvim.git',
+            '--branch=stable', -- latest stable release
+            path,
+        })
+    end
 end
 
 function lazy.setup(plugins)
-	if vim.g.plugins_ready then
-		return
-	end
+    if vim.g.plugins_ready then
+        return
+    end
 
-	-- You can "comment out" the line below after lazy.nvim is installed
-	--lazy.install(lazy.path)
+    -- You can "comment out" the line below after lazy.nvim is installed
+    --lazy.install(lazy.path)
 
-	vim.opt.rtp:prepend(lazy.path)
+    vim.opt.rtp:prepend(lazy.path)
 
-	require('lazy').setup(plugins, lazy.opts)
-	vim.g.plugins_ready = true
+    require('lazy').setup(plugins, lazy.opts)
+    vim.g.plugins_ready = true
 end
 
 lazy.path = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
 lazy.opts = {}
 
 lazy.setup({
-	-- list of plugins
+    -- list of plugins
+    -- plenary
+    {'nvim-lua/plenary.nvim'},
     -- color theme
-	{'bluz71/vim-moonfly-colors'},
+    {'bluz71/vim-moonfly-colors'},
     -- status line
-	{'nvim-lualine/lualine.nvim'},
-	-- plugins for lsp
-	{'neovim/nvim-lspconfig'},
+    {'nvim-lualine/lualine.nvim'},
+    -- plugins for lsp
+    {'neovim/nvim-lspconfig'},
     {'williamboman/mason.nvim'},
     {'williamboman/mason-lspconfig.nvim'},
-	-- plugins for autocompletion
-	{'hrsh7th/nvim-cmp'},
-	{'hrsh7th/cmp-buffer'},
-	{'hrsh7th/cmp-path'},
-	{'saadparwaiz1/cmp_luasnip'},
-	{'hrsh7th/cmp-nvim-lsp'},
-	{'L3MON4D3/LuaSnip'},
-	{'rafamadriz/friendly-snippets'},
+    -- plugins for autocompletion
+    {'hrsh7th/nvim-cmp'},
+    {'hrsh7th/cmp-buffer'},
+    {'hrsh7th/cmp-path'},
+    {'saadparwaiz1/cmp_luasnip'},
+    {'hrsh7th/cmp-nvim-lsp'},
+    {'L3MON4D3/LuaSnip'},
+    {'rafamadriz/friendly-snippets'},
     -- file explorer
     {'nvim-tree/nvim-tree.lua'},
+    -- fuzzy finder
+    {'nvim-telescope/telescope.nvim'},
+    {'nvim-telescope/telescope-fzf-native.nvim', build = 'make'},
 })
 
 -- color theme
@@ -112,10 +117,10 @@ vim.cmd.colorscheme('moonfly')
 
 -- configure lualine
 require('lualine').setup({
-	options = {
-		icons_enabled = false,
-		theme = 'moonfly',
-	}
+    options = {
+        icons_enabled = false,
+        theme = 'moonfly',
+    }
 })
 
 -- reload config
@@ -129,63 +134,63 @@ local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 -- lua lsp
 lspconfig.lua_ls.setup({
-	settings = {
-		Lua = {
-			diagnostics = {
-				globals = {
-					'vim',
-				},
-			},
-		},
-	},
-	capabilities = lsp_capabilities,
+    settings = {
+        Lua = {
+            diagnostics = {
+                globals = {
+                    'vim',
+                },
+            },
+        },
+    },
+    capabilities = lsp_capabilities,
 })
 
 -- lsp keybindings
 vim.api.nvim_create_autocmd('LspAttach', {
-	desc = 'LSP actions',
-	callback = function()
-		local bufmap = function(mode, lhs, rhs)
-			local opts = {buffer = true}
-			vim.keymap.set(mode, lhs, rhs, opts)
+    desc = 'LSP actions',
+    callback = function()
+        local bufmap = function(mode, lhs, rhs)
+            local opts = {buffer = true}
+            vim.keymap.set(mode, lhs, rhs, opts)
         end
 
-		-- displays hover information about the symbol under the cursor
-		bufmap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>')
+        -- displays hover information about the symbol under the cursor
+        bufmap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>')
 
-		-- jump to definition
-		bufmap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>')
+        -- jump to definition
+        bufmap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>')
 
-		-- jump to declaration
-		bufmap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<cr>')
+        -- jump to declaration
+        bufmap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<cr>')
 
-		-- list all the implementations for the symbol under the cursor
-		bufmap('n', 'gi', '<cmd"lua vim.lsp.buf.implementation()<cr>')
+        -- list all the implementations for the symbol under the cursor
+        bufmap('n', 'gi', '<cmd"lua vim.lsp.buf.implementation()<cr>')
 
-		-- jumps to the definition of the type symbol
-		bufmap('n', 'go', '<cmd>lua vim.lsp.buf.type_definition()<cr>')
+        -- jumps to the definition of the type symbol
+        bufmap('n', 'go', '<cmd>lua vim.lsp.buf.type_definition()<cr>')
 
-		-- lists all the references
-		bufmap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>')
+        -- lists all the references
+        bufmap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>')
 
-		-- displays a function's signature information
-		bufmap('n', 'gs', 'Mcmd>lua vim.lsp.buf.signature_help()<cr>')
+        -- displays a function's signature information
+        bufmap('n', 'gs', 'Mcmd>lua vim.lsp.buf.signature_help()<cr>')
 
-		-- renames all references to the symbol under the cursor
-		bufmap('n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<cr>')
+        -- renames all references to the symbol under the cursor
+        bufmap('n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<cr>')
 
-		-- selects a code action available at the current cursor position
-		bufmap('n', '<F4>', '<cmd>lua vim.lsp.buf.code_action()<cr>')
+        -- selects a code action available at the current cursor position
+        bufmap('n', '<F4>', '<cmd>lua vim.lsp.buf.code_action()<cr>')
 
-		-- show diagnosticts in a floating window
-		bufmap('n', 'gl', '<cmd>lua vim.diagnostic.open_float()<cr>')
+        -- show diagnosticts in a floating window
+        bufmap('n', 'gl', '<cmd>lua vim.diagnostic.open_float()<cr>')
 
-		-- move to the previous diagnostic
-		bufmap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<cr>')
+        -- move to the previous diagnostic
+        bufmap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<cr>')
 
-		-- move to the next diagnostic
-		bufmap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<cr>')
-	end
+        -- move to the next diagnostic
+        bufmap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<cr>')
+    end
 })
 
 -- snippets
@@ -340,4 +345,19 @@ require('nvim-tree').setup({
 })
 
 vim.keymap.set('n', '<leader>e', '<cmd>NvimTreeToggle<cr>')
+
+-- telescope
+require('telescope').load_extension('fzf')
+-- search opened files
+vim.keymap.set('n', '<leader><space>', '<cmd>Telescope buffers<cr>')
+-- search recently opened files
+vim.keymap.set('n', '<leader>?', '<cmd>Telescope oldfiles<cr>')
+-- search files in the current working directory
+vim.keymap.set('n', '<leader>ff', '<cmd>Telescope find_files<cr>')
+-- search for a pattern in all files in the current working directory
+vim.keymap.set('n', '<leader>fg', '<cmd>Telescope live_grep<cr>')
+-- search diagnostic messages: A diagnostic can be an error, a warnging or a hint
+vim.keymap.set('n', '<leader>fd', '<cmd>Telescope diagnostics<cr>')
+-- search for a pattern in the current file
+vim.keymap.set('n', '<leader>fs', '<cmd>Telescope current_buffer_fuzzy_find<cr>')
 
