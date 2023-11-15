@@ -1,3 +1,7 @@
+-- disable netrw
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 -- show relative line numbers
 vim.opt.number = true
 vim.opt.relativenumber = true
@@ -98,6 +102,8 @@ lazy.setup({
 	{'hrsh7th/cmp-nvim-lsp'},
 	{'L3MON4D3/LuaSnip'},
 	{'rafamadriz/friendly-snippets'},
+    -- file explorer
+    {'nvim-tree/nvim-tree.lua'},
 })
 
 -- color theme
@@ -111,11 +117,6 @@ require('lualine').setup({
 		theme = 'moonfly',
 	}
 })
-
--- configure netrw
-vim.keymap.set('n', '<leader>pv', '<cmd>Lexplore<cr>')
-vim.g.netrw_banner = 0
-vim.g.netrw_winsize = 30
 
 -- reload config
 vim.api.nvim_create_user_command('ReloadConfig', 'source $MYVIMRC', {})
@@ -311,4 +312,32 @@ vim.diagnostic.config({
 -- help windows with borders
 vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, {border = 'rounded'})
 vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.signature_help, {border = 'rounded'})
+
+-- nvim-tree
+require('nvim-tree').setup({
+    renderer = {
+        icons = {
+            show = {
+                file = false,
+                folder = false,
+                folder_arrow = false,
+                git = false,
+            },
+        },
+    },
+    hijack_cursor = false,
+    on_attach = function(bufnr)
+        local bufmap = function(lhs, rhs, desc)
+            vim.keymap.set('n', lhs, rhs, {buffer = bufnr, desc = desc})
+        end
+
+        local api = require('nvim-tree.api')
+
+        bufmap('L', api.node.open.edit, 'Expand folder or go to file')
+        bufmap('H', api.node.navigate.parent_close, 'Close parent folder')
+        bufmap('gh', api.tree.toggle_hidden_filter, 'Toggle hidden files')
+    end
+})
+
+vim.keymap.set('n', '<leader>e', '<cmd>NvimTreeToggle<cr>')
 
