@@ -412,10 +412,13 @@ require('nvim-treesitter.configs').setup({
     },
     ensure_installed = {
         'c',
+        'html',
         'lua',
         'make',
         'markdown',
+        'markdown_inline',
         'python',
+        'sql',
         'vim',
         'vimdoc'
     },
@@ -428,4 +431,3 @@ vim.api.nvim_create_autocmd("BufWritePre", {
         vim.lsp.buf.format {async = true}
     end,
 })
-
