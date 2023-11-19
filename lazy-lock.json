@@ -18,5 +18,6 @@
   "plenary.nvim": { "branch": "master", "commit": "50012918b2fc8357b87cff2a7f7f0446e47da174" },
   "telescope-fzf-native.nvim": { "branch": "main", "commit": "6c921ca12321edaa773e324ef64ea301a1d0da62" },
   "telescope.nvim": { "branch": "master", "commit": "721cdcae134eb5c564cb6c9df6c317c3854528ad" },
-  "vim-moonfly-colors": { "branch": "master", "commit": "5f121c0e8103181a16aa86e9f80e99204eef6c39" }
+  "vim-moonfly-colors": { "branch": "master", "commit": "5f121c0e8103181a16aa86e9f80e99204eef6c39" },
+  "vim-surround": { "branch": "master", "commit": "3d188ed2113431cf8dac77be61b842acb64433d9" }
 }

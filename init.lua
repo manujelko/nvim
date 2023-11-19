@@ -114,6 +114,8 @@ lazy.setup({
     -- treesitter
     {'nvim-treesitter/nvim-treesitter'},
     {'nvim-treesitter/nvim-treesitter-textobjects'},
+    -- surround
+    {'tpope/vim-surround'},
 })
 
 -- color theme
