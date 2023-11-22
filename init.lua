@@ -154,6 +154,9 @@ lspconfig.lua_ls.setup({
     capabilities = lsp_capabilities,
 })
 
+-- gopls
+lspconfig.gopls.setup({})
+
 -- pyright
 lspconfig.pyright.setup({})
 
@@ -416,6 +419,7 @@ require('nvim-treesitter.configs').setup({
         'bash',
         'c',
         'css',
+        'go',
         'html',
         'lua',
         'make',
@@ -431,6 +435,14 @@ require('nvim-treesitter.configs').setup({
 -- format on save in Python
 vim.api.nvim_create_autocmd("BufWritePre", {
     pattern = "*.py",
+    callback = function()
+        vim.lsp.buf.format {async = true}
+    end,
+})
+
+-- format on save in Go
+vim.api.nvim_create_autocmd("BufWritePre", {
+    pattern = "*go",
     callback = function()
         vim.lsp.buf.format {async = true}
     end,
