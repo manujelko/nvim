@@ -177,6 +177,9 @@ if not lspconfig_configs then
 end
 lspconfig.ruff_lsp.setup({})
 
+-- tsserver
+lspconfig.tsserver.setup({})
+
 -- lsp keybindings
 vim.api.nvim_create_autocmd('LspAttach', {
     desc = 'LSP actions',
@@ -421,6 +424,7 @@ require('nvim-treesitter.configs').setup({
         'css',
         'go',
         'html',
+        'javascript',
         'lua',
         'make',
         'markdown',
