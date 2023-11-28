@@ -528,3 +528,11 @@ end
 
 -- Add a command to Neovim that deletes the current folder's virtualenv
 vim.api.nvim_create_user_command('VenvDelete', venv_delete, {})
+
+-- turn on spell checking in markdown files
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "markdown",
+    callback = function()
+        vim.opt_local.spell = true
+    end
+})
