@@ -19,6 +19,9 @@ vim.opt.hlsearch = false
 -- wrap lines
 vim.opt.wrap = true
 
+-- add visual column
+vim.opt.colorcolumn = "88"
+
 -- preserve indentation of a virtual line
 vim.opt.breakindent = true
 
@@ -179,6 +182,9 @@ lspconfig.ruff_lsp.setup({})
 
 -- tsserver
 lspconfig.tsserver.setup({})
+
+-- clangd
+lspconfig.clangd.setup({})
 
 -- lsp keybindings
 vim.api.nvim_create_autocmd('LspAttach', {
@@ -447,9 +453,9 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 
 -- format on save in Go
 vim.api.nvim_create_autocmd("BufWritePre", {
-    pattern = "*go",
+    pattern = "*.go",
     callback = function()
-        vim.lsp.buf.format {async = true}
+        vim.lsp.buf.format({ timeout_ms = 2000 })
     end,
 })
 
