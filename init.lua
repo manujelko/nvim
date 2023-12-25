@@ -184,7 +184,9 @@ lspconfig.ruff_lsp.setup({})
 lspconfig.tsserver.setup({})
 
 -- clangd
-lspconfig.clangd.setup({})
+lspconfig.clangd.setup({
+    filetypes = { "c" }
+})
 
 -- lsp keybindings
 vim.api.nvim_create_autocmd('LspAttach', {
@@ -429,6 +431,8 @@ require('nvim-treesitter.configs').setup({
         'c',
         'css',
         'go',
+        'gomod',
+        'gosum',
         'html',
         'javascript',
         'json',
@@ -436,6 +440,7 @@ require('nvim-treesitter.configs').setup({
         'make',
         'markdown',
         'markdown_inline',
+        'proto',
         'python',
         'sql',
         'vim',
