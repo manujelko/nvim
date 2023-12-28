@@ -362,6 +362,9 @@ vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.s
 
 -- nvim-tree
 require('nvim-tree').setup({
+    git = {
+        ignore = false,
+    },
     renderer = {
         icons = {
             show = {
