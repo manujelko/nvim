@@ -138,7 +138,17 @@ vim.api.nvim_create_user_command('ReloadConfig', 'source $MYVIMRC', {})
 
 -- lsp
 require('mason').setup()
-require('mason-lspconfig').setup()
+require('mason-lspconfig').setup({
+    ensure_installed = {
+        "bashls",
+        "clangd",
+        "gopls",
+        "lua_ls",
+        "pyright",
+        "ruff_lsp",
+        "tsserver",
+    }
+})
 local lspconfig = require('lspconfig')
 local lspconfig_configs = require('lspconfig.configs')
 local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
@@ -187,6 +197,9 @@ lspconfig.tsserver.setup({})
 lspconfig.clangd.setup({
     filetypes = { "c" }
 })
+
+-- bashls
+lspconfig.bashls.setup({})
 
 -- lsp keybindings
 vim.api.nvim_create_autocmd('LspAttach', {
