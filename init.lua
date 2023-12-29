@@ -140,6 +140,7 @@ vim.api.nvim_create_user_command('ReloadConfig', 'source $MYVIMRC', {})
 require('mason').setup()
 require('mason-lspconfig').setup({
     ensure_installed = {
+        "awk_ls",
         "bashls",
         "clangd",
         "gopls",
@@ -167,13 +168,24 @@ lspconfig.lua_ls.setup({
     capabilities = lsp_capabilities,
 })
 
+-- awk_ls
+lspconfig.awk_ls.setup({})
+
+-- bashls
+lspconfig.bashls.setup({})
+
+-- clangd
+lspconfig.clangd.setup({
+    filetypes = { "c" }
+})
+
 -- gopls
 lspconfig.gopls.setup({})
 
 -- pyright
 lspconfig.pyright.setup({})
 
--- ruff-lsp
+-- ruff_lsp
 if not lspconfig_configs then
     lspconfig_configs.ruff_lsp = {
         default_config = {
@@ -192,14 +204,6 @@ lspconfig.ruff_lsp.setup({})
 
 -- tsserver
 lspconfig.tsserver.setup({})
-
--- clangd
-lspconfig.clangd.setup({
-    filetypes = { "c" }
-})
-
--- bashls
-lspconfig.bashls.setup({})
 
 -- lsp keybindings
 vim.api.nvim_create_autocmd('LspAttach', {
@@ -443,6 +447,7 @@ require('nvim-treesitter.configs').setup({
         },
     },
     ensure_installed = {
+        'awk',
         'bash',
         'c',
         'css',
