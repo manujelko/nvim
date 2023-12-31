@@ -2,9 +2,6 @@
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
--- disable comment continuation
-vim.opt.formatoptions:remove({'r', 'o'})
-
 -- show relative line numbers
 vim.opt.number = true
 vim.opt.relativenumber = true
