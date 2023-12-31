@@ -1,4 +1,4 @@
-local common = require('user.plugins.lsp.setup')
+local common = require('user.plugins.lsp.common')
 local lspconfig = require('lspconfig')
 
 -- tsserver
