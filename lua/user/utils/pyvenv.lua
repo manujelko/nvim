@@ -19,20 +19,6 @@ local function venv_create(args)
 
         print("Virtualenv created and set: " .. venv_name)
 
-        -- Define the JSON content
-        local home_directory = os.getenv("HOME")
-        local venv_path = home_directory .. "/.pyenv/versions"
-        local content = string.format('{\n    "venvPath": "%s",\n    "venv": "%s"\n}', venv_path, venv_name)
-
-        -- Write the content to pyrightconfig.json
-        local file = io.open("pyrightconfig.json", "w")
-        if file then
-            file:write(content)
-            file:close()
-            print("pyrightconfig.json created with venv: " .. venv_name)
-        else
-            print("Error: Unable to open pyrightconfig.json for writing.")
-        end
     else
         print("Error: Unable to execute shell command.")
     end
@@ -56,12 +42,6 @@ local function venv_delete()
         if vim.fn.filereadable(".python-version") == 1 then
             os.remove(".python-version")
             print(".python-version file removed.")
-        end
-
-        -- Remove pyrightconfig.json file if it exists
-        if vim.fn.filereadable("pyrightconfig.json") == 1 then
-            os.remove("pyrightconfig.json")
-            print("pyrightconfig.json file removed.")
         end
 
         print("Virtualenv removed: " .. venv_name)
