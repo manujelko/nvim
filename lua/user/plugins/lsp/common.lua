@@ -2,14 +2,14 @@
 require('mason').setup()
 require('mason-lspconfig').setup({
     ensure_installed = {
-        "awk_ls",
-        "bashls",
-        "clangd",
-        "gopls",
-        "lua_ls",
-        "pyright",
-        "ruff_lsp",
-        "tsserver",
+        'awk_ls',
+        'bashls',
+        'clangd',
+        'gopls',
+        'lua_ls',
+        'pyright',
+        'ruff_lsp',
+        'tsserver',
     }
 })
 

@@ -34,6 +34,6 @@ require('nvim-treesitter.configs').setup({
         'python',
         'sql',
         'vim',
-        'vimdoc'
+        'vimdoc',
     },
 })
