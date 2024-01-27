@@ -2,7 +2,6 @@ local common = require('user.plugins.lsp.common')
 local lspconfig = require('lspconfig')
 local lspconfig_configs = require('lspconfig.configs')
 
--- ruff_lsp
 if not lspconfig_configs then
     lspconfig_configs.ruff_lsp = {
         default_config = {

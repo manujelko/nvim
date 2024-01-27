@@ -1,7 +1,6 @@
 local common = require('user.plugins.lsp.common')
 local lspconfig = require('lspconfig')
 
--- gopls
 lspconfig.gopls.setup({
     on_attach = function(client, bufnr)
         common.on_attach(client, bufnr)
