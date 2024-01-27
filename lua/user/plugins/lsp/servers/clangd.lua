@@ -5,5 +5,5 @@ local lspconfig = require('lspconfig')
 lspconfig.clangd.setup({
     on_attach = common.on_attach,
     capabilities = common.capabilities,
-    filetypes = { "c", "cpp" }
+    filetypes = { 'c', 'cpp', 'h' }
 })
