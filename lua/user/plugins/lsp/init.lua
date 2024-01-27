@@ -1,5 +1,4 @@
 require('user.plugins.lsp.common')
-require('user.plugins.lsp.servers.awk_ls')
 require('user.plugins.lsp.servers.bashls')
 require('user.plugins.lsp.servers.clangd')
 require('user.plugins.lsp.servers.gopls')
