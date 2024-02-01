@@ -32,4 +32,6 @@ lazy.setup({
     {'nvim-treesitter/nvim-treesitter-textobjects'},
     -- surround
     {'tpope/vim-surround'},
+    -- python indent
+    {'Vimjas/vim-python-pep8-indent'},
 })
