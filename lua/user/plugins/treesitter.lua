@@ -34,5 +34,6 @@ require('nvim-treesitter.configs').setup({
         'sql',
         'vim',
         'vimdoc',
+        'yaml',
     },
 })
