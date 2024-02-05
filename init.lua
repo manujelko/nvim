@@ -1,3 +1,3 @@
 require('user.core')
 require('user.plugins')
-require('user.utils.pyright')
+require('user.utils')

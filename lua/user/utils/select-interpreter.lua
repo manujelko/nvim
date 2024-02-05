@@ -1,4 +1,4 @@
-local function pyrightconfig(args)
+local function selectInterpreter(args)
     -- Get the provided environment name
     local venv_name = args.args
 
@@ -32,9 +32,9 @@ end
 
 -- Add a command to Neovim that creates a pyrightconfig.json file
 vim.api.nvim_create_user_command(
-    'PyrightConfig',
+    'SelectInterpreter',
     function(args)
-        pyrightconfig({args = args.args})
+        selectInterpreter({ args = args.args })
     end,
     { nargs = '?' }
 )
