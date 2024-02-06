@@ -9,6 +9,10 @@ lspconfig.lua_ls.setup({
             buffer = bufnr,
             callback = function()
                 vim.lsp.buf.format({ timeout_ms = 2000 })
+                -- Schedule diagnostics refresh after a short delay
+                vim.defer_fn(function()
+                    vim.diagnostic.show()
+                end, 100)
             end,
         })
     end,
