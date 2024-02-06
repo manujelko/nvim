@@ -2,10 +2,10 @@
 require('luasnip.loaders.from_vscode').lazy_load()
 
 -- autocompletion
-vim.opt.completeopt = {'menu', 'menuone', 'noselect'}
+vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
 local cmp = require('cmp')
 local luasnip = require('luasnip')
-local select_opts = {behavior = cmp.SelectBehavior.Select}
+local select_opts = { behavior = cmp.SelectBehavior.Select }
 cmp.setup({
     snippet = {
         expand = function(args)
@@ -15,13 +15,13 @@ cmp.setup({
     -- data sources to populate the completion list
     sources = {
         -- autocomplete file paths
-        {name = 'path'},
+        { name = 'path' },
         -- suggestions based on the language server
-        {name = 'nvim_lsp', keyword_length = 1},
+        { name = 'nvim_lsp', keyword_length = 1 },
         -- suggest words found in the current buffer
-        {name = 'buffer', keyword_length = 3},
+        { name = 'buffer',   keyword_length = 3 },
         -- show available snippets
-        {name = 'luasnip', keyword_length = 2},
+        { name = 'luasnip',  keyword_length = 2 },
     },
     -- appearance and settings for the documentation window
     window = {
@@ -29,7 +29,7 @@ cmp.setup({
     },
     formatting = {
         -- order of the elements in an item
-        fields = {'menu', 'abbr', 'kind'},
+        fields = { 'menu', 'abbr', 'kind' },
         -- customize the appearance of the completion menu
         format = function(entry, item)
             local menu_icon = {
@@ -46,8 +46,8 @@ cmp.setup({
     -- completion keybindings
     mapping = {
         -- confirm selection
-        ['<CR>'] = cmp.mapping.confirm({select = false}),
-        ['<C-y>'] = cmp.mapping.confirm({select = true}),
+        ['<CR>'] = cmp.mapping.confirm({ select = false }),
+        ['<C-y>'] = cmp.mapping.confirm({ select = true }),
         -- cancel completion
         ['<C-e>'] = cmp.mapping.abort(),
         -- move between completion items
@@ -65,7 +65,7 @@ cmp.setup({
             else
                 fallback()
             end
-        end, {'i', 's'}),
+        end, { 'i', 's' }),
         -- jump to the previous placeholder in the snippet
         ['<C-b>'] = cmp.mapping(function(fallback)
             if luasnip.jumpable(-1) then
@@ -73,7 +73,7 @@ cmp.setup({
             else
                 fallback()
             end
-        end, {'i', 's'}),
+        end, { 'i', 's' }),
         -- autocomplete with tab
         ['<Tab>'] = cmp.mapping(function(fallback)
             local col = vim.fn.col('.') - 1
@@ -85,15 +85,13 @@ cmp.setup({
             else
                 cmp.complete()
             end
-        end, {'i', 's'}),
+        end, { 'i', 's' }),
         ['<S-Tab>'] = cmp.mapping(function(fallback)
             if cmp.visible() then
                 cmp.select_prev_item(select_opts)
             else
                 fallback()
             end
-        end, {'i', 's'}),
+        end, { 'i', 's' }),
     },
 })
-
-

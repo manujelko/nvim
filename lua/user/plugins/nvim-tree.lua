@@ -16,13 +16,13 @@ require('nvim-tree').setup({
     hijack_cursor = false,
     on_attach = function(bufnr)
         local bufmap = function(lhs, rhs, desc)
-            vim.keymap.set('n', lhs, rhs, {buffer = bufnr, desc = desc})
+            vim.keymap.set('n', lhs, rhs, { buffer = bufnr, desc = desc })
         end
 
         local api = require('nvim-tree.api')
 
-	-- default mappings
-	api.config.mappings.default_on_attach(bufnr)
+        -- default mappings
+        api.config.mappings.default_on_attach(bufnr)
 
         bufmap('L', api.node.open.edit, 'Expand folder or go to file')
         bufmap('H', api.node.navigate.parent_close, 'Close parent folder')
@@ -31,4 +31,3 @@ require('nvim-tree').setup({
 })
 
 vim.keymap.set('n', '<leader>e', '<cmd>NvimTreeToggle<cr>')
-

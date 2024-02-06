@@ -4,7 +4,7 @@ vim.api.nvim_create_user_command('ReloadConfig', 'source $MYVIMRC', {})
 -- disable comment continuation
 vim.api.nvim_create_autocmd("BufEnter", {
     callback = function()
-        vim.opt.formatoptions = vim.opt.formatoptions - { "c","r","o" }
+        vim.opt.formatoptions = vim.opt.formatoptions - { "c", "r", "o" }
     end
 })
 

@@ -5,8 +5,8 @@ local lspconfig_configs = require('lspconfig.configs')
 if not lspconfig_configs then
     lspconfig_configs.ruff_lsp = {
         default_config = {
-            cmd = {'ruff-lsp'},
-            filetypes = {'python'},
+            cmd = { 'ruff-lsp' },
+            filetypes = { 'python' },
             root_dir = require('lspconfig').util.find_git_ancestor,
             init_options = {
                 settings = {

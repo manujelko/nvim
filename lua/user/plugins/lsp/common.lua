@@ -16,7 +16,7 @@ local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 local function common_on_attach(client, bufnr)
     local bufmap = function(mode, lhs, rhs)
-        local opts = {buffer = true}
+        local opts = { buffer = true }
         vim.keymap.set(mode, lhs, rhs, opts)
     end
 
