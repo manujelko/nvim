@@ -24,12 +24,28 @@ lazy.setup({
     { 'nvim-tree/nvim-tree.lua' },
     -- fuzzy finder
     { 'nvim-telescope/telescope.nvim' },
-    { 'nvim-telescope/telescope-fzf-native.nvim',   build = 'make' },
+    {
+        'nvim-telescope/telescope-fzf-native.nvim',
+        build = 'make'
+    },
     -- comments
-    { 'numToStr/Comment.nvim',                      lazy = false },
+    {
+        'numToStr/Comment.nvim',
+        lazy = false
+    },
     -- treesitter
     { 'nvim-treesitter/nvim-treesitter' },
     { 'nvim-treesitter/nvim-treesitter-textobjects' },
     -- surround
     { 'tpope/vim-surround' },
+    -- devicons
+    { 'nvim-tree/nvim-web-devicons' },
+    -- venv-selector
+    {
+        'linux-cultist/venv-selector.nvim',
+        keys = {
+            { '<leader>vs', '<cmd>VenvSelect<cr>' },
+            { '<leader>vc', '<cmd>VenvSelectCached<cr>' },
+        }
+    }
 })

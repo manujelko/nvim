@@ -2,7 +2,7 @@
 vim.g.mapleader = ' '
 
 -- save file
-vim.keymap.set('n', '<leader>w', '<cmd>write<cr>')
+-- vim.keymap.set('n', '<leader>w', '<cmd>write<cr>')
 
 -- copy to clipboard
 vim.keymap.set({ 'n', 'x' }, 'gy', '"+y')

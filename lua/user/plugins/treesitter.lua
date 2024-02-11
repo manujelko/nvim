@@ -31,6 +31,7 @@ require('nvim-treesitter.configs').setup({
         'markdown_inline',
         'proto',
         'python',
+        'rust',
         'sql',
         'vim',
         'vimdoc',
