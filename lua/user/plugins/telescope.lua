@@ -1,5 +1,5 @@
--- telescope
 require('telescope').load_extension('fzf')
+
 -- search opened files
 vim.keymap.set('n', '<leader><space>', '<cmd>Telescope buffers<cr>')
 -- search recently opened files
