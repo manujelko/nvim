@@ -33,3 +33,6 @@ vim.opt.shiftwidth = 4
 
 -- should neovim transform tabs into spaces
 vim.opt.expandtab = true
+
+-- underline for cursor
+vim.opt.guicursor = "a:hor100"
