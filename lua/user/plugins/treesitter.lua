@@ -16,7 +16,6 @@ require('nvim-treesitter.configs').setup({
     },
     ensure_installed = {
         'bash',
-        'c',
         'css',
         'go',
         'gomod',
@@ -30,7 +29,6 @@ require('nvim-treesitter.configs').setup({
         'markdown_inline',
         'proto',
         'python',
-        'rust',
         'sql',
         'vim',
         'vimdoc',
