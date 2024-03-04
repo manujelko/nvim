@@ -47,5 +47,5 @@ lazy.setup({
             { '<leader>vs', '<cmd>VenvSelect<cr>' },
             { '<leader>vc', '<cmd>VenvSelectCached<cr>' },
         }
-    }
+    },
 })
