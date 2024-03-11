@@ -8,7 +8,7 @@ lspconfig.gopls.setup({
         vim.api.nvim_create_autocmd('BufWritePre', {
             buffer = bufnr,
             callback = function()
-                vim.lsp.buf.format({ timeout_ms = 2000 })
+                vim.lsp.buf.format({ timeout_ms = 100 })
             end,
         })
     end,
