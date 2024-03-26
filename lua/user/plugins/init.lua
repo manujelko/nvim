@@ -1,4 +1,4 @@
-require('user.plugins.plugin_list')
+require('user.plugins.plugin-list')
 require('user.plugins.devicons')
 require('user.plugins.comments')
 require('user.plugins.lualine')

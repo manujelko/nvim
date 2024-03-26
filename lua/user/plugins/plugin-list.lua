@@ -5,7 +5,7 @@ lazy.setup({
     -- plenary
     { 'nvim-lua/plenary.nvim' },
     -- color theme
-    { 'bluz71/vim-moonfly-colors' },
+    { "catppuccin/nvim",                  name = "catppuccin", priority = 1000 },
     -- status line
     { 'nvim-lualine/lualine.nvim' },
     -- plugins for lsp

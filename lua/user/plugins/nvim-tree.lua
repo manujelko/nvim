@@ -2,16 +2,16 @@ require('nvim-tree').setup({
     git = {
         ignore = false,
     },
-    -- renderer = {
-    --     icons = {
-    --         show = {
-    --             file = false,
-    --             folder = false,
-    --             folder_arrow = false,
-    --             git = false,
-    --         },
-    --     },
-    -- },
+    renderer = {
+        icons = {
+            show = {
+                file = true,
+                folder = true,
+                folder_arrow = false,
+                git = false,
+            },
+        },
+    },
     hijack_cursor = false,
     on_attach = function(bufnr)
         local bufmap = function(lhs, rhs, desc)
