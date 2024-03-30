@@ -42,6 +42,8 @@ local function common_on_attach(client, bufnr)
     bufmap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<cr>')
     -- move to the next diagnostic
     bufmap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<cr>')
+    -- trigger completion with Ctrl+Space
+    bufmap('i', '<C-Space>', '<cmd>lua vim.lsp.buf.signature_help()<CR>')
 end
 
 -- set a variable for common settings, if any, to use in individual LSP configs
