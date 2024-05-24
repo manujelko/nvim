@@ -30,6 +30,7 @@ require('nvim-treesitter.configs').setup({
         'proto',
         'python',
         'sql',
+        'terraform',
         'vim',
         'vimdoc',
         'yaml',
