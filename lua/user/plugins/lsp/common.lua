@@ -6,6 +6,7 @@ require('mason-lspconfig').setup({
         'lua_ls',
         'pyright',
         'ruff_lsp',
+        'sqls',
         'tsserver',
     }
 })
