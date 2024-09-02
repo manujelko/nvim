@@ -41,4 +41,9 @@ return {
   { "neovim/nvim-lspconfig" },
   { "williamboman/mason.nvim" },
   { "williamboman/mason-lspconfig.nvim" },
+
+  -- treesitter
+  { "nvim-treesitter/nvim-treesitter" },
+  { "nvim-treesitter/nvim-treesitter-textobjects" },
+
 }
