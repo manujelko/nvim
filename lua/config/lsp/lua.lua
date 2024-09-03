@@ -10,8 +10,12 @@ local settings = {
         },
     },
 }
+
+-- configure lua_ls
 lspconfig.lua_ls.setup({
-    on_attach = base.on_attach,
     capabilities = base.capabilities,
     settings = base.merge_settings(base.settings, settings),
+    on_attach = function(client, bufnr)
+      base.on_attach(client, bufnr)
+    end,
 })

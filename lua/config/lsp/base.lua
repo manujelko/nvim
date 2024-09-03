@@ -9,8 +9,7 @@ require("mason-lspconfig").setup({
 
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
--- local function on_attach(client, bufnr)
-local function on_attach()
+local function on_attach(client, bufnr)
   local bufmap = function(mode, lhs, rhs)
     local opts = { buffer = true }
     vim.keymap.set(mode, lhs, rhs, opts)
