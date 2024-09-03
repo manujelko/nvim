@@ -1,23 +1,16 @@
-local sign = function(opts)
-    vim.fn.sign_define(opts.name, {
-        texthl = opts.name,
-        text = opts.text,
-        numhl = ""
-    })
-end
-
-sign({ name = "DiagnosticSignError", text = "E" })
-sign({ name = "DiagnosticSignWarn", text = "W" })
-sign({ name = "DiagnosticSignHint", text = "H" })
-sign({ name = "DiagnosticSignInfo", text = "I" })
-
 vim.diagnostic.config({
-    virtual_text = false,
-    severity_sort = true,
-    float = {
-        border = "rounded",
-        source = "awlays",
-    },
+  virtual_text = false,
+  severity_sort = true,
+  float = {
+    border = "rounded",
+    source = "always",
+  },
+  signs = {
+    Error = { text = "E", texthl = "DiagnosticSignError" },
+    Warn = { text = "W", texthl = "DiagnosticSignWarn" },
+    Hint = { text = "H", texthl = "DiagnosticSignHint" },
+    Info = { text = "I", texthl = "DiagnosticSignInfo" },
+  },
 })
 
 -- help windows with borders
