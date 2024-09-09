@@ -16,6 +16,6 @@ lspconfig.lua_ls.setup({
     capabilities = base.capabilities,
     settings = base.merge_settings(base.settings, settings),
     on_attach = function(client, bufnr)
-      base.on_attach(client, bufnr)
+        base.on_attach(client, bufnr)
     end,
 })
