@@ -15,9 +15,6 @@ require("nvim-treesitter.configs").setup({
         },
     },
     ensure_installed = {
-        "css",
-        "html",
-        "javascript",
         "json",
         "python",
         "yaml",
