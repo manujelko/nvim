@@ -3,7 +3,6 @@ require("mason-lspconfig").setup({
 	ensure_installed = {
 		"cssls",
 		"html",
-		"gopls",
 		"lua_ls",
 		"pyright",
 		"ruff",

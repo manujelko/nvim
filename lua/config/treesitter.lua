@@ -17,10 +17,6 @@ require("nvim-treesitter.configs").setup({
 	},
 	ensure_installed = {
 		"css",
-		"go",
-		"gomod",
-		"gosum",
-		"gowork",
 		"html",
 		"javascript",
 		"json",
