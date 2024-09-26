@@ -36,6 +36,7 @@ require("nvim-tree").setup({
 		bufmap("H", api.node.navigate.parent_close, "Close parent folder")
 		bufmap("gh", api.tree.toggle_hidden_filter, "Toggle hidden files")
 		bufmap("<esc>", api.tree.close, "Close nvim-tree")
+		bufmap("<C-c>", api.tree.close, "Close nvim-tree")
 	end,
 	view = {
 		float = {
