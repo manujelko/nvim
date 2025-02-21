@@ -6,3 +6,8 @@ vim.opt.relativenumber = true
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = false
+
+-- disable indentation, leave it up to treesitter
+vim.opt.autoindent = false
+vim.opt.smartindent = false
+vim.opt.cindent = false

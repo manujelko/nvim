@@ -6,7 +6,7 @@ return {
 		lazy = false,
 	},
 
-	-- color theme
+	-- moonfly color theme
 	{
 		"bluz71/vim-moonfly-colors",
 		name = "moonfly",
@@ -45,4 +45,10 @@ return {
 	-- treesitter
 	{ "nvim-treesitter/nvim-treesitter" },
 	{ "nvim-treesitter/nvim-treesitter-textobjects" },
+
+	-- better python indentation
+	{
+		"Vimjas/vim-python-pep8-indent",
+		ft = "python",
+	}
 }

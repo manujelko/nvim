@@ -3,7 +3,7 @@ local lspconfig = require("lspconfig")
 
 -- configure pyright
 lspconfig.pyright.setup({
-	capabilities = base.capabiltiies,
+	capabilities = base.capabilities,
 	settings = base.settings,
 	on_attach = function(client, bufnr)
 		base.on_attach(client, bufnr)
@@ -12,6 +12,7 @@ lspconfig.pyright.setup({
 
 -- configure ruff
 lspconfig.ruff.setup({
+	filetypes = { "python" },
 	capabilities = base.capabilities,
 	settings = base.settings,
 	on_attach = function(client, bufnr)
