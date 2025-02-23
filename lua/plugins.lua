@@ -6,11 +6,10 @@ return {
 		lazy = false,
 	},
 
-	-- moonfly color theme
+	-- catppuccin
 	{
-		"bluz71/vim-moonfly-colors",
-		name = "moonfly",
-		lazy = false,
+		"catppuccin/nvim",
+		name = "catppuccin",
 		priority = 1000,
 	},
 

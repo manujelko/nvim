@@ -1,6 +1,6 @@
 require("config.lazy")
 require("config.options")
-require("config.theme")
+require("config.catppuccin")
 require("config.nvim-tree")
 require("config.telescope")
 require("config.diagnostic")
