@@ -16,7 +16,7 @@ lspconfig.ts_ls.setup({
 					apply = true,
 				})
 				vim.wait(100)
-				vim.lsp.buf.format({ async = true })
+				vim.lsp.buf.format({ async = false })
 			end,
 		})
 	end,
