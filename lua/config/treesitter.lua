@@ -1,4 +1,4 @@
-vim.g.python_indent = {} -- Disable built-in Vim Python indent
+vim.g.python_indent = {}         -- Disable built-in Vim Python indent
 vim.g.python_indent_disabled = 1 -- Ensure old indenting is off
 
 require("nvim-treesitter.configs").setup({
@@ -27,6 +27,8 @@ require("nvim-treesitter.configs").setup({
 		"ini",
 		"javascript",
 		"json",
+		"markdown",
+		"markdown_inline",
 		"python",
 		"sql",
 		"tsx",
