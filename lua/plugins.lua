@@ -50,5 +50,14 @@ return {
 	{
 		"Vimjas/vim-python-pep8-indent",
 		ft = "python",
+	},
+
+	-- indentation guides
+	{
+		"lukas-reineke/indent-blankline.nvim",
+		main = "ibl",
+		---@module "ibl"
+		---@type ibl.config
+		opts = {},
 	}
 }
