@@ -14,3 +14,8 @@ vim.opt.cindent = false
 
 -- remove ~ marking empty lines
 vim.opt.fillchars:append({ eob = " " })
+
+-- wrap text
+vim.opt.wrap = true
+vim.opt.linebreak = true
+vim.opt.showbreak = "↪ "
