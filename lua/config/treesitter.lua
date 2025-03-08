@@ -27,7 +27,6 @@ require("nvim-treesitter.configs").setup({
 		"ini",
 		"javascript",
 		"json",
-		"make",
 		"markdown",
 		"markdown_inline",
 		"python",
