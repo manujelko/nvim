@@ -22,11 +22,13 @@ require("nvim-treesitter.configs").setup({
 		},
 	},
 	ensure_installed = {
+		"bash",
 		"css",
 		"html",
 		"ini",
 		"javascript",
 		"json",
+		"make",
 		"markdown",
 		"markdown_inline",
 		"python",
