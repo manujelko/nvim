@@ -6,12 +6,17 @@ return {
 		lazy = false,
 	},
 
-	-- moonfly color theme
+	-- icons
 	{
-		"bluz71/vim-moonfly-colors",
-		name = "moonfly",
-		lazy = false,
-		priority = 1000,
+		"nvim-tree/nvim-web-devicons",
+		opts = {},
+	},
+
+	-- rose-pine theme
+	{
+		"rose-pine/neovim",
+		name = "rose-pine",
+		lazy = true,
 	},
 
 	-- fuzzy finder

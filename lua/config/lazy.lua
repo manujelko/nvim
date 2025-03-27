@@ -26,24 +26,24 @@ require("lazy").setup({
 		{ import = "plugins" },
 	},
 	-- colorscheme that will be used when installing plugins.
-	install = { colorscheme = { "moonfly" } },
+	install = { colorscheme = { "rose-pine" } },
 	-- automatically check for plugin updates
-	checker = { enabled = true },
-	ui = {
-		icons = {
-			cmd = "",
-			config = "",
-			event = "",
-			ft = "",
-			init = "",
-			keys = "",
-			plugin = "",
-			runtime = "",
-			require = "",
-			source = "",
-			start = "",
-			task = "",
-			lazy = "",
-		},
-	},
+	checker = { enabled = false },
+	-- ui = {
+	-- 	icons = {
+	-- 		cmd = "",
+	-- 		config = "",
+	-- 		event = "",
+	-- 		ft = "",
+	-- 		init = "",
+	-- 		keys = "",
+	-- 		plugin = "",
+	-- 		runtime = "",
+	-- 		require = "",
+	-- 		source = "",
+	-- 		start = "",
+	-- 		task = "",
+	-- 		lazy = "",
+	-- 	},
+	-- },
 })

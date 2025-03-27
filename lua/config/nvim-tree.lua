@@ -3,7 +3,6 @@ vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
 -- configure nvim-tree
-
 local HEIGHT_RATIO = 0.8
 local WIDTH_RATIO = 0.5
 
@@ -14,10 +13,10 @@ require("nvim-tree").setup({
 	renderer = {
 		icons = {
 			show = {
-				file = false,
-				folder = false,
-				folder_arrow = false,
-				git = false,
+				file = true,
+				folder = true,
+				folder_arrow = true,
+				git = true,
 			},
 		},
 	},
@@ -51,7 +50,7 @@ require("nvim-tree").setup({
 				local center_x = (screen_w - window_w) / 2
 				local center_y = ((vim.opt.lines:get() - window_h) / 2) - vim.opt.cmdheight:get()
 				return {
-					border = "rounded",
+					border = "none",
 					relative = "editor",
 					row = center_y,
 					col = center_x,
@@ -67,3 +66,11 @@ require("nvim-tree").setup({
 })
 
 vim.keymap.set("n", "<leader>e", "<cmd>NvimTreeToggle<cr>")
+
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "NvimTree",
+	callback = function()
+		vim.cmd("highlight! NvimTreeNormal guibg=NONE ctermbg=NONE")
+		vim.cmd("highlight! NvimTreeNormalNC guibg=NONE ctermbg=NONE")
+	end,
+})
