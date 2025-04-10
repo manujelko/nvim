@@ -8,7 +8,6 @@ require("mason-lspconfig").setup({
 		"lua_ls",
 		"pyright",
 		"ruff",
-		"rust_analyzer",
 		"ts_ls",
 	}
 })
