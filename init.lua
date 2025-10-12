@@ -1,5 +1,6 @@
 require('plugins').setup()
 require('options').setup()
+require('surround').setup()
 require('icons').setup()
 require('completion').setup()
 require('files').setup()
