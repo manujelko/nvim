@@ -12,7 +12,6 @@ M.setup = function()
   vim.o.ignorecase = true
   vim.o.mouse = 'nvi'
   vim.o.swapfile = false
-  -- vim.o.completeopt = 'menu,menuone,noinsert'
   vim.o.completeopt = 'menu,menuone,noselect'
   vim.o.termguicolors = true
 end

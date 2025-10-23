@@ -4,6 +4,9 @@ M.setup = function()
   -- Configure treesitter
   require('nvim-treesitter.configs').setup({
     ensure_installed = {
+      'go',
+      'gomod',
+      'gosum',
       'json',
       'lua',
       'markdown',

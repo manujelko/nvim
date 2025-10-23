@@ -5,6 +5,7 @@ M.setup = function()
     'lua_ls',
     'basedpyright',
     'ruff',
+    'gopls',
   }
 
   for _, lsp in ipairs(lsps) do
