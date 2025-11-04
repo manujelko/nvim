@@ -4,10 +4,9 @@ M.setup = function()
   -- Configure treesitter
   require('nvim-treesitter.configs').setup({
     ensure_installed = {
-      'go',
-      'gomod',
-      'gosum',
       'json',
+      "go",
+      "gomod",
       'lua',
       'markdown',
       'vimdoc',
@@ -15,8 +14,16 @@ M.setup = function()
       'sql',
       'toml',
     },
-    highlight = { enable = true },
-    indent = { enable = true },
+    highlight = {
+      enable = true,
+    },
+    indent = {
+      enable = true,
+      disable = {
+        'python',
+        'org',
+      },
+    },
 
     textobjects = {
       select = {

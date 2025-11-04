@@ -44,6 +44,24 @@ local function install()
     checkout = 'master',
     depends = { 'nvim-treesitter/nvim-treesitter' },
   })
+
+  -- venv-selector
+  add({
+    source = 'linux-cultist/venv-selector.nvim',
+    checkout = 'main',
+  })
+
+  -- nicer Python indentation
+  add({
+    source = 'Vimjas/vim-python-pep8-indent',
+    checkout = 'master',
+  })
+
+  -- render markdown
+  add({
+    source = 'MeanderingProgrammer/render-markdown.nvim',
+    checkout = 'main',
+  })
 end
 
 local M = {}

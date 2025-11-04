@@ -1,7 +1,7 @@
 local M = {}
 
 M.setup = function()
-  require('mini.icons').setup()
+  require('render-markdown').setup()
 end
 
 return M

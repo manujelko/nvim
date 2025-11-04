@@ -5,7 +5,7 @@ M.setup = function()
     flavour = "auto", -- latte, frappe, macchiato, mocha
     background = {    -- :h background
       light = "latte",
-      dark = "frappe",
+      dark = "mocha",
     },
     transparent_background = false, -- disables setting the background color.
     float = {

@@ -19,7 +19,6 @@ M.setup = function()
   vim.keymap.set('n', '<leader><leader>', '<cmd>lua MiniPick.builtin.buffers()<cr>')
   vim.keymap.set('n', '<leader>ff', '<cmd>lua MiniPick.builtin.files()<cr>')
   vim.keymap.set('n', '<leader>fg', '<cmd>lua MiniPick.builtin.grep_live()<cr>')
-  vim.keymap.set('n', '<leader>fs', '<cmd>lua MiniSessions.select()<cr>')
 end
 
 return M
