@@ -16,9 +16,9 @@ M.setup = function()
       config = win_config,
     },
   })
-  vim.keymap.set('n', '<leader><leader>', '<cmd>lua MiniPick.builtin.buffers()<cr>')
-  vim.keymap.set('n', '<leader>ff', '<cmd>lua MiniPick.builtin.files()<cr>')
-  vim.keymap.set('n', '<leader>fg', '<cmd>lua MiniPick.builtin.grep_live()<cr>')
+  vim.keymap.set('n', '<Leader><space>', '<cmd>lua MiniPick.builtin.buffers()<cr>', { desc = 'Buffer' })
+  vim.keymap.set('n', '<Leader>ff', '<cmd>lua MiniPick.builtin.files()<cr>', { desc = 'File' })
+  vim.keymap.set('n', '<Leader>fg', '<cmd>lua MiniPick.builtin.grep_live()<cr>', { desc = 'Grep' })
 end
 
 return M

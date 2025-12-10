@@ -4,7 +4,7 @@ M.setup = function()
   require('venv-selector').setup({
     picker = 'mini-pick',
   })
-  vim.keymap.set('n', '<leader>fv', '<cmd>VenvSelect<cr>')
+  vim.keymap.set('n', '<Leader>fv', '<cmd>VenvSelect<cr>', { desc = 'Venv' })
 end
 
 return M
