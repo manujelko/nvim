@@ -4,15 +4,20 @@ M.setup = function()
   -- Configure treesitter
   require('nvim-treesitter.configs').setup({
     ensure_installed = {
+      'cpp',
+      'css',
+      'go',
+      'gomod',
+      'html',
       'json',
-      "go",
-      "gomod",
       'lua',
       'markdown',
       'vimdoc',
       'python',
+      'rust',
       'sql',
       'toml',
+      'yaml',
     },
     highlight = {
       enable = true,
@@ -21,7 +26,6 @@ M.setup = function()
       enable = true,
       disable = {
         'python',
-        'org',
       },
     },
 
@@ -30,11 +34,11 @@ M.setup = function()
         enable = true,
         lookahead = true,
         keymaps = {
-          ["af"] = "@function.outer",
-          ["if"] = "@function.inner",
-          ["ac"] = "@class.outer",
-          ["ic"] = { query = "@class.inner", desc = "Select inner part of a class region" },
-          ["as"] = { query = "@local.scope", query_group = "locals", desc = "Select language scope" },
+          ['af'] = '@function.outer',
+          ['if'] = '@function.inner',
+          ['ac'] = '@class.outer',
+          ['ic'] = { query = '@class.inner', desc = 'Select inner part of a class region' },
+          ['as'] = { query = '@local.scope', query_group = 'locals', desc = 'Select language scope' },
         },
         selection_modes = {
           ['@parameter.outer'] = 'v',

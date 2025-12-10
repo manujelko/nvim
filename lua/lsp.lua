@@ -2,10 +2,12 @@ local M = {}
 
 M.setup = function()
   local lsps = {
-    'lua_ls',
     'basedpyright',
-    'ruff',
+    'clangd',
     'gopls',
+    'lua_ls',
+    'ruff',
+    'rust_analyzer',
   }
 
   for _, lsp in ipairs(lsps) do
