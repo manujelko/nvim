@@ -6,7 +6,9 @@ M.setup = function()
     local height = math.floor(0.618 * vim.o.lines)
     local width = math.floor(0.618 * vim.o.columns)
     return {
-      anchor = 'NW', height = height, width = width,
+      anchor = 'NW',
+      height = height,
+      width = width,
       row = math.floor(0.5 * (vim.o.lines - height)),
       col = math.floor(0.5 * (vim.o.columns - width)),
     }
@@ -16,8 +18,8 @@ M.setup = function()
       config = win_config,
     },
   })
-  vim.keymap.set('n', '<Leader><space>', '<cmd>lua MiniPick.builtin.buffers()<cr>', { desc = 'Buffer' })
-  vim.keymap.set('n', '<Leader>ff', '<cmd>lua MiniPick.builtin.files()<cr>', { desc = 'File' })
+  vim.keymap.set('n', '<Leader><Space>', '<cmd>lua MiniPick.builtin.buffers()<cr>', { desc = 'Buffers' })
+  vim.keymap.set('n', '<Leader>ff', '<cmd>lua MiniPick.builtin.files()<cr>', { desc = 'Files' })
   vim.keymap.set('n', '<Leader>fg', '<cmd>lua MiniPick.builtin.grep_live()<cr>', { desc = 'Grep' })
 end
 

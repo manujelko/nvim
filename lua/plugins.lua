@@ -30,6 +30,9 @@ local function install()
   -- Catppuccin
   add({ source = "catppuccin/nvim", name = "catppuccin" })
 
+  -- Kanagawa
+  add({ source = "rebelot/kanagawa.nvim", name = "kanagawa" })
+
   -- Treesitter
   add({
     source = 'nvim-treesitter/nvim-treesitter',

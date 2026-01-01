@@ -4,11 +4,13 @@ M.setup = function()
   -- Configure treesitter
   require('nvim-treesitter.configs').setup({
     ensure_installed = {
+      'bash',
       'cpp',
       'css',
       'go',
       'gomod',
       'html',
+      'javascript',
       'json',
       'lua',
       'markdown',
@@ -17,6 +19,7 @@ M.setup = function()
       'rust',
       'sql',
       'toml',
+      'typescript',
       'yaml',
     },
     highlight = {
@@ -25,7 +28,12 @@ M.setup = function()
     indent = {
       enable = true,
       disable = {
+        'bash',
+        'html',
+        'javascript',
         'python',
+        'toml',
+        'typescript',
       },
     },
 
