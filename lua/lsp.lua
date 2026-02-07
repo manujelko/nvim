@@ -3,13 +3,13 @@ local M = {}
 M.setup = function()
   local lsps = {
     'bashls',
-    'basedpyright',
     'clangd',
     'gopls',
     'lua_ls',
     'ruff',
     'rust_analyzer',
     'ts_ls',
+    'ty',
   }
 
   for _, lsp in ipairs(lsps) do

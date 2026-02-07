@@ -33,6 +33,9 @@ local function install()
   -- Kanagawa
   add({ source = "rebelot/kanagawa.nvim", name = "kanagawa" })
 
+  -- Rosé Pine
+  add({ source = "rose-pine/neovim", name = "rose-pine" })
+
   -- Treesitter
   add({
     source = 'nvim-treesitter/nvim-treesitter',

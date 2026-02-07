@@ -5,6 +5,7 @@ M.setup = function()
   require('nvim-treesitter.configs').setup({
     ensure_installed = {
       'bash',
+      'caddy',
       'cpp',
       'css',
       'go',
@@ -26,15 +27,7 @@ M.setup = function()
       enable = true,
     },
     indent = {
-      enable = true,
-      disable = {
-        'bash',
-        'html',
-        'javascript',
-        'python',
-        'toml',
-        'typescript',
-      },
+      enable = false,
     },
 
     textobjects = {
